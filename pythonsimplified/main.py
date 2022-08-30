@@ -1,5 +1,6 @@
 import sqlite3
 
+#path = "/Documents/GitHub/SqlitePythonPractice/pythonsimplified/gta.db"
 connection = sqlite3.connect("gta.db")
 cursor = connection.cursor()
 
@@ -28,7 +29,9 @@ gta_search =  cursor.fetchall()
 print(gta_search )
 
 cursor.execute("create table cities (gta_city text, real_city text)")
-cursor.execute("insert into cities values (?, ?", ("Liberty City, New York"))
-cursor.execute("select * from cities where city ")
+cursor.execute("insert into cities values (?, ?)", ("Liberty City", "New York"))
+cursor.execute("select * from cities where gta_city=:c", {"c": "Liberty City"})
+cities_search = cursor.fetchall()
+print(cities_search )
 
 connection.close()
