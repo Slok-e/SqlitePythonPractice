@@ -4,7 +4,7 @@ import sqlite3
 connection = sqlite3.connect("gta.db")
 cursor = connection.cursor()
 
-cursor.execute("create table gta (release integer, title text, city text)")
+cursor.execute("create table if not exists gta (release integer, title text, city text)")
 
 release_list = [
     (1997, "Grand Theft Auto", "state of New Guernsey"),
