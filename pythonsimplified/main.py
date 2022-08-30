@@ -34,4 +34,10 @@ cursor.execute("select * from cities where gta_city=:c", {"c": "Liberty City"})
 cities_search = cursor.fetchall()
 print(cities_search )
 
+# Now to manipulate the data
+print("***********************************************")
+for i in gta_search:
+    changed = [cities_search[0][1] if value==cities_search[0][0] else value for value in i]
+    print(changed)
+
 connection.close()
